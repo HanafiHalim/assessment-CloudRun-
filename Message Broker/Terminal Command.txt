@@ -1,0 +1,18 @@
+docker network create rabbits
+
+docker run -d --rm --net rabbits -p 8080:15672 --hostname hanafi-virtual-machine --name rabbit rabbitmq:3.9
+
+docker ps
+
+docker exec -it rabbit bash
+
+rabbitmq-plugins enable rabbitmq_management
+
+rabbitmq-plugins list
+
+cd ~/Desktop/Publisher
+
+docker build . -t aimvector/rabbitmq-publisher:v1.0.0
+
+
+
